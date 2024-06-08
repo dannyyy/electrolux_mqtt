@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Electrolux.Host", "Electrolux.Host\Electrolux.Host.csproj", "{A2F8C85A-CEDD-4910-AF44-5EA742ED1358}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Electrolux", "Electrolux\Electrolux.csproj", "{EE88C53D-DAC8-4DD5-8F73-C5B3ACF4C220}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2F8C85A-CEDD-4910-AF44-5EA742ED1358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2F8C85A-CEDD-4910-AF44-5EA742ED1358}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2F8C85A-CEDD-4910-AF44-5EA742ED1358}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2F8C85A-CEDD-4910-AF44-5EA742ED1358}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE88C53D-DAC8-4DD5-8F73-C5B3ACF4C220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE88C53D-DAC8-4DD5-8F73-C5B3ACF4C220}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE88C53D-DAC8-4DD5-8F73-C5B3ACF4C220}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE88C53D-DAC8-4DD5-8F73-C5B3ACF4C220}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
