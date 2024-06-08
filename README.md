@@ -91,6 +91,8 @@ e.g. `<TOPICPREFIX>=smarthome/electrolux/` -> `smarthome/electrolux/appliances/1
 
 
 ## Release Notes
+### 2.0.1
+- Fixed an issue with duplicate appliance capabilities fetched from the Electrolux backend
 ### 2.0.0
 - Open sourced on GitHub
 - Removed source code protection

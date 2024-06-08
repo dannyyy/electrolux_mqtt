@@ -43,10 +43,15 @@ public class ElectroluxRepository
     public async Task<IReadOnlySet<ApplianceCapability>> GetCapabilitiesByApplianceAsync(string applianceId, CancellationToken cancellationToken)
     {
         await EnsureLoginAsync(cancellationToken);
-        return (await _electroluxApiClient
-            .GetApplianceCapabilitiesAsync(_accessToken!, applianceId, cancellationToken))
+        var applianceCapabilities = (await _electroluxApiClient
+                .GetApplianceCapabilitiesAsync(_accessToken!, applianceId, cancellationToken))
             .Where(i => i.Value.Access == "readwrite")
-            .Select(i => new ApplianceCapability(i.Key, i.Value.Values?.Keys.Select(k => k).ToImmutableHashSet(), i.Value.Min, i.Value.Max))
+            .Select(i => new ApplianceCapability(i.Key, i.Value.Values?.Keys.Select(k => k).ToImmutableHashSet(),
+                i.Value.Min, i.Value.Max))
+            .Append(new ApplianceCapability("executeCommand", ImmutableHashSet.Create("ON", "OFF")));
+
+        return applianceCapabilities
+            .DistinctBy(i => i.command)
             .ToImmutableHashSet();
     }
 
