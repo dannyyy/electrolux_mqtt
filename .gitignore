@@ -338,3 +338,4 @@ test/results/
 appsettings.user.json
 
 .DS_Store
+BuildAndPush.sh
