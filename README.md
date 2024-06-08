@@ -190,3 +190,64 @@ spec:
             - name: 'ELECTROLUX__PASSWORD'
               value: ''
 ```
+
+## Home Assistant
+An example integration on how to use it in Home Assistant
+
+```
+climate:
+    - name: <ENTITY NAME>
+      device:
+        identifiers:
+          - '<APPLIANCEID>'
+        manufacturer: 'Electrolux'
+        model: '<YOUR MODEL>'
+        name: '<YOUR NAME>'
+        suggested_area: '<YOUR AREA>'
+
+      availability_topic: 'smarthome/electrolux/appliances/<APPLIANCEID>/state'
+      availability_template: '{{ value_json.connectionState }}'
+      payload_available: 'connected'
+      payload_not_available: 'disconnected'
+
+      json_attributes_topic: 'smarthome/electrolux/appliances/<APPLIANCEID>/state'
+
+      modes:
+        - "auto"
+        - "off"
+        - "cool"
+        - "heat"
+        - "dry"
+        - "fan_only"
+      mode_command_topic: "smarthome/electrolux/appliances/<APPLIANCEID>/command"
+      mode_command_template: '{ "mode":  "{{ "fanonly" if value == "fan_only" else value | upper }}" }'
+      mode_state_topic: 'smarthome/electrolux/appliances/<APPLIANCEID>/state'
+      mode_state_template: '{{ "fan_only" if value_json.mode == "fanonly" else value_json.mode | lower }}'
+
+      precision: 1.0
+      temperature_unit: 'C'
+      initial: 22
+      min_temp: 22
+      max_temp: 25
+      current_temperature_topic: 'smarthome/electrolux/appliances/<APPLIANCEID>/state'
+      current_temperature_template: '{{ value_json.ambientTemperatureC }}'
+      temperature_command_topic: 'smarthome/electrolux/appliances/<APPLIANCEID>/command'
+      temperature_command_template: '{ "targetTemperatureC":  {{ value }} }'
+
+      swing_modes:
+        - "on"
+        - "off"
+      swing_mode_command_topic: 'smarthome/electrolux/appliances/<APPLIANCEID>/command'
+      swing_mode_command_template: '{ "verticalSwing":  "{{ value | upper }}" }'
+      swing_mode_state_topic: 'smarthome/electrolux/appliances/<APPLIANCEID>/state'
+      swing_mode_state_template: '{{ value_json.verticalSwing }}'
+      fan_modes:
+        - "auto"
+        - "high"
+        - "medium"
+        - "low"
+      fan_mode_command_topic: 'smarthome/electrolux/appliances/<APPLIANCEID>/command'
+      fan_mode_command_template: '{ "fanSpeedSetting":  "{{ "middle" if value =="medium" else value | upper }}" }'
+      fan_mode_state_topic: 'smarthome/electrolux/appliances/<APPLIANCEID>/state'
+      fan_mode_state_template: '{{ value_json.fanSpeedSetting }}'
+```
