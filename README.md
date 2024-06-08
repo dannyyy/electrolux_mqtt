@@ -1,4 +1,4 @@
-![Docker Pulls](https://img.shields.io/docker/pulls/dannyyy/danflash-electrolux)
+![Docker Pulls](https://img.shields.io/docker/pulls/dannyyy/electrolux-mqtt)
 
 # Electrolux to MQTT
 
@@ -91,6 +91,9 @@ e.g. `<TOPICPREFIX>=smarthome/electrolux/` -> `smarthome/electrolux/appliances/1
 
 
 ## Release Notes
+### 2.0.0
+- Open sourced on GitHub
+- Removed source code protection
 ### 1.0.0
 - Initial release with only MQTT 5 support (TCP/TLS)
 - Reports registered appliances
@@ -117,7 +120,7 @@ docker run \
   -e MQTT__STATUSUPDATEINTERVAL="<UPDATE-INTERAL-IN-S>" \       # Reports devices, capabilities and state (Default 30)
   -e ELECTROLUX__EMAIL="<EMAIL>" \
   -e ELECTROLUX__PASSWORD="<PASSWORD>" \
-  dannyyy/danflash-electrolux:1.0
+  dannyyy/electrolux-mqtt:2.0
 ```
 
 ### Kubernetes
@@ -159,7 +162,7 @@ spec:
     spec:
       containers:
         - name: electrolux
-          image: dannyyy/danflash-electrolux:1.0
+          image: dannyyy/electrolux-mqtt:2.0
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
