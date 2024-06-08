@@ -192,7 +192,9 @@ spec:
 ```
 
 ## Home Assistant
-An example integration on how to use it in Home Assistant
+An example integration on how to use it in Home Assistant.
+
+For Home Assistant related questions and support, please use the community forum: https://community.home-assistant.io/t/electrolux-to-mqtt
 
 ```
 climate:
