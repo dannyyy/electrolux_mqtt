@@ -21,9 +21,9 @@ IHost host = Host.CreateDefaultBuilder(args)
     {
         configuration
             .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", false)
-            .AddJsonFile("appsettings.user.json", true)
-            .AddUserSecrets(typeof(Program).Assembly, true)
+            .AddJsonFile("appsettings.json", false, false)
+            .AddJsonFile("appsettings.user.json", true, false)
+            .AddUserSecrets(typeof(Program).Assembly, true, false)
             .AddEnvironmentVariables()
             .AddCommandLine(args)
             .Build();
