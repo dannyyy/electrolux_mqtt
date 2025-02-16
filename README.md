@@ -91,6 +91,9 @@ e.g. `<TOPICPREFIX>=smarthome/electrolux/` -> `smarthome/electrolux/appliances/1
 
 
 ## Release Notes
+### 2.0.2
+- Fixed token endpoint request to request access_token
+- Updated to .NET 9
 ### 2.0.1
 - Fixed an issue with duplicate appliance capabilities fetched from the Electrolux backend
 ### 2.0.0

@@ -29,10 +29,10 @@ public class ElectroluxApiClient
         var client = GetDefaultClient();
 
         var tokenRequestModel = new ElectroluxTokenRequest(
-            "client_credentials",
-            AppClientId,
-            AppClientSecret,
-            AgentName);
+            grantType: "client_credentials",
+            clientId: AppClientId,
+            clientSecret: AppClientSecret,
+            scope: string.Empty);
 
         var response = await client.PostAsJsonAsync(
             TokenEndpoint,
